@@ -34,7 +34,6 @@
 #include <QDebug>
 #include <QDateTime>
 #include <QUrl>
-#include <QProcess>
 
 #include "configurationvalue.h"
 
@@ -102,9 +101,8 @@ void ConfigurationValue::setDefaultValue(const QVariant &value)
         emit valueChanged();
 }
 
-void ConfigurationValue::forceSync()
+void ConfigurationValue::suggestSync()
 {
-    QProcess forceSync;
-    forceSync.start("/usr/bin/killall gconfd-2");
-    forceSync.waitForFinished();
+    if (mItem)
+        mItem->sync();
 }

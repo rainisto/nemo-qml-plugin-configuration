@@ -57,7 +57,7 @@ public:
     QVariant defaultValue() const;
     void setDefaultValue(const QVariant &defaultValue);
 
-    Q_INVOKABLE void forceSync();
+    Q_INVOKABLE void suggestSync();
 
 signals:
     void keyChanged();
